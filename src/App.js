@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from './components/Header'
 import './App.css';
 
 class App extends Component {
@@ -46,7 +47,7 @@ class App extends Component {
         </div>)
 
     const total = Object.keys(this.state.selected)
-          .reduce((acc, curr) => acc + this.state.selected[curr].cost, 0);    
+          .reduce((acc, curr) => acc + this.state.selected[curr].cost, 0);
 
 
     const features = Object.keys(this.props.features)
@@ -56,7 +57,7 @@ class App extends Component {
               const featureClass = 'feature__option ' + selectedClass;
               return <li key={index} className="feature__item">
                 <div className={featureClass}
-                  
+
                   onClick={e => this.updateFeature(key, item)}>
                     { item.name }
                     ({ new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})
@@ -71,20 +72,20 @@ class App extends Component {
                 { options }
               </ul>
             </div>
-          });      
+          });
 
     return (
       <div className="App">
-        <header>
-          <h1>ELF Computing</h1>
-          <h3>Laptops</h3>
-          <h5>Customize your laptop</h5>  
-        </header>      
+
+        <Header />
+
         <main>
+
           <section className="main__form">
             <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
             { features }
           </section>
+
           <section className="main__summary">
             <h3>NEW GREENLEAF 2018</h3>
             {summary}
@@ -96,10 +97,11 @@ class App extends Component {
               </div>
             </div>
           </section>
+
         </main>
       </div>
     );
   }
 }
 
-export default App;  
+export default App;
