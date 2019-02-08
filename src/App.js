@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/Header'
+import Form from './components/Form';
 import './App.css';
 
 class App extends Component {
@@ -25,9 +26,12 @@ class App extends Component {
           }
       }
     }
+
+    this.updateFeature = this.updateFeature.bind(this);
   }
 
   updateFeature(feature, newValue) {
+    console.log('update feature', this.state)
     const selected = Object.assign({}, this.state.selected);
     selected[feature] = newValue;
     this.setState({
@@ -81,10 +85,12 @@ class App extends Component {
 
         <main>
 
+          <Form features={this.props.features} selected={this.state.selected} onClick={this.updateFeature}/>
+{/*
           <section className="main__form">
             <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
             { features }
-          </section>
+          </section> */}
 
           <section className="main__summary">
             <h3>NEW GREENLEAF 2018</h3>
