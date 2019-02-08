@@ -28,7 +28,6 @@ class App extends Component {
       }
     }
 
-    // TODO: Can we fix our 'this' problem another way?
     this.updateFeature = this.updateFeature.bind(this);
   }
 
